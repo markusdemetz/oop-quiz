@@ -1,25 +1,25 @@
 package quiz;
 
-public abstract class Question {
-    private String text;
-    private int points;
+public interface Question {
 
-    public Question(String text, int points) {
-        this.text = text;
-        this.points = points;
+    int MAX_QUESTIONS = 100;
+
+    void zeigeFrage();
+    int getPoints();
+    boolean verify(String input);
+
+    default void checkSomething(String input) {
+        System.out.println(input);
+        verify(input);
+        printSomething();
     }
 
-    public String getText() {
-        return text;
+    private void printSomething() {
+        System.out.println("Something");
     }
 
-    public int getPoints() {
-        return points;
+    static Question[] createQuestions() {
+        return new Question[0];
     }
 
-    public void print(){
-        System.out.print(text);
-    }
-
-    public abstract boolean verify(String input);
 }

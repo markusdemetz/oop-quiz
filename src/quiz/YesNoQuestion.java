@@ -2,7 +2,7 @@ package quiz;
 
 import java.util.Locale;
 
-public class YesNoQuestion extends Question {
+public class YesNoQuestion extends AbstractQuestion implements LeichteFrage {
 
     private boolean correct;
 
@@ -30,5 +30,10 @@ public class YesNoQuestion extends Question {
     public void print() {
         super.print();
         System.out.println(" J(a) / N(ein) ?");
+    }
+
+    @Override
+    public int minusPunkte() {
+        return 1;
     }
 }

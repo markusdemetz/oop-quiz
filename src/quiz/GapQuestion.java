@@ -1,6 +1,6 @@
 package quiz;
 
-public class GapQuestion extends Question {
+public class GapQuestion extends AbstractQuestion implements LeichteFrage {
 
     private final String answer;
 
@@ -19,5 +19,10 @@ public class GapQuestion extends Question {
         super.print();
         System.out.println();
         System.out.print("Ihre Eingabe: ");
+    }
+
+    @Override
+    public int minusPunkte() {
+        return 1;
     }
 }
